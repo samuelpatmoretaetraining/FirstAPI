@@ -20,7 +20,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RequestInterface requestInterface;
+    //private RequestInterface requestInterface;
 
     private ArrayList<CakeModel> mCakeList;
     private RecyclerView recyclerView;
@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mCakeList = new ArrayList<CakeModel>();
-        getAPIData();
 
         Log.i("onCreate()", "reading local cake list");
         for(CakeModel c : mCakeList) Log.i("local cake", c.getTitle());
@@ -51,38 +50,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void getAPIData() {
-        requestInterface = ServerConnection.getServerConnection();
-        requestInterface.getCakesList()
-                .observeOn(AndroidSchedulers.mainThread())
-                // ensure to reference plural Schedulers class
-                .subscribeOn(Schedulers.io())
-                .subscribe(new Observer<List<CakeModel>>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
 
-                    }
-
-                    @Override
-                    public void onNext(List<CakeModel> value) {
-                        mCakeList = new ArrayList<>(value);
-                        for(CakeModel c: value) {
-                            Log.i("CakeList", c.getTitle());
-                            //mCakeList.add(c);
-                        }
-                        Log.i("CakeList (local)", "size: "+mCakeList.size());
-                        initRecyclerView();
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
-    }
 }
