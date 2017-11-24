@@ -10,6 +10,7 @@ import java.util.List;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by Samuel on 24/11/2017.
@@ -26,20 +27,36 @@ public class CakeListPresenter<V extends ICakeListMvpView>
     @Override
     public void onCallCakeList() {
 
-        getCompositeDisposable().add(getDataManager().getFromApi_CakeList()
+        getCompositeDisposable().add(
+                getDataManager().getFromApi_CakeList()
                 .observeOn(getSchedulerProvider().ui())
-               .subscribeOn(getSchedulerProvider().io())
+                .subscribeOn(getSchedulerProvider().io())
                 .subscribe(new Consumer<List<CakeModel>>() {
                     @Override
                     public void accept(List<CakeModel> cakeModels) throws Exception {
-                        getMvpView().onFetchDataSuccess(cakeModels);
+
                     }
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
-                        getMvpView().onError(throwable.getMessage());
+
                     }
                 }));
+
+//        getCompositeDisposable().add(getDataManager().getFromApi_CakeList()
+//             .observeOn(AndroidSchedulers.mainThread())
+//                .subscribeOn(Schedulers.io())
+//                .subscribe(new Consumer<List<CakeModel>>() {
+//                    @Override
+//                    public void accept(List<CakeModel> cakeModels) throws Exception {
+//                        getMvpView().onFetchDataSuccess(cakeModels);
+//                    }
+//                }, new Consumer<Throwable>() {
+//                    @Override
+//                    public void accept(Throwable throwable) throws Exception {
+//                        getMvpView().onError(throwable.getMessage());
+//                    }
+//                }));
 
     }
 }

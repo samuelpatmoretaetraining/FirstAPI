@@ -1,6 +1,7 @@
 package com.muelpatmore.firstapi.data;
 
 import com.muelpatmore.firstapi.data.network.ApiHelper;
+import com.muelpatmore.firstapi.data.network.AppApiHelper;
 import com.muelpatmore.firstapi.data.network.constants.CakeModel;
 
 import java.util.List;
@@ -15,8 +16,9 @@ public class AppDataManager implements IDataManager {
 
     private ApiHelper apiHelper;
 
-    public AppDataManager(ApiHelper apiHelper) {
-        this.apiHelper = apiHelper;
+
+    public AppDataManager() {
+        apiHelper = new AppApiHelper();
     }
 
     @Override
