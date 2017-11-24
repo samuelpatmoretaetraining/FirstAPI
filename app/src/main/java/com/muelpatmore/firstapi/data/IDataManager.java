@@ -12,4 +12,6 @@ import io.reactivex.Observable;
  */
 
 public interface IDataManager extends ApiHelper {
+
+
 }
