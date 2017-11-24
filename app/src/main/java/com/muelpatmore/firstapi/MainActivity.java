@@ -6,9 +6,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
-import com.muelpatmore.firstapi.services.RequestInterface;
-import com.muelpatmore.firstapi.services.ServerConnection;
-import com.muelpatmore.firstapi.util.constants.CakeModel;
+import com.muelpatmore.firstapi.data.network.services.RequestInterface;
+import com.muelpatmore.firstapi.data.network.services.ServerConnection;
+import com.muelpatmore.firstapi.data.network.constants.CakeModel;
 
 import java.util.ArrayList;
 import java.util.List;

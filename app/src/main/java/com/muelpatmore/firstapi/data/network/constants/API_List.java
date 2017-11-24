@@ -1,4 +1,4 @@
-package com.muelpatmore.firstapi.util.constants;
+package com.muelpatmore.firstapi.data.network.constants;
 
 public class API_List {
     public static final String BASE_URL= "https://gist.githubusercontent.com/hart88/";

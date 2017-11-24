@@ -1,7 +1,7 @@
-package com.muelpatmore.firstapi.services;
+package com.muelpatmore.firstapi.data.network.services;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import com.muelpatmore.firstapi.util.constants.API_List;
+import com.muelpatmore.firstapi.data.network.constants.API_List;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;

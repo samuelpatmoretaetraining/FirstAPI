@@ -1,7 +1,7 @@
-package com.muelpatmore.firstapi.services;
+package com.muelpatmore.firstapi.data.network.services;
 
-import com.muelpatmore.firstapi.util.constants.API_List;
-import com.muelpatmore.firstapi.util.constants.CakeModel;
+import com.muelpatmore.firstapi.data.network.constants.API_List;
+import com.muelpatmore.firstapi.data.network.constants.CakeModel;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.muelpatmore.firstapi.util.constants;
+package com.muelpatmore.firstapi.data.network.constants;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
